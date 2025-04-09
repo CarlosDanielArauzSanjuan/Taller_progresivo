@@ -1,0 +1,247 @@
+@import url(variables.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "anironb";
+    text-align: center;
+}
+
+body {
+    /* Fondo inspirado en El Señor de los Anillos con moria */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background-image: url(../storage/images/Moria.jpg);
+    overflow: hidden;
+}
+
+/* Añadir un efecto de textura al fondo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.error-message {
+    color: #000000; 
+    margin-top: 15px;
+    font-size: clamp(12px, 2vw, 14px);
+    display: none;
+    background-color: rgba(255, 235, 205, 0.7);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d68f6a;
+    width: 80%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+
+}
+
+/* Fix the background to prevent distortion */
+.login-container {
+    background: url(../storage/images/d676fxx-1d8afabd-22af-4f67-b398-d960bc2747e2.jpeg);
+    background-size: cover; /* Keep this */
+    background-position: center; /* Keep this */
+    background-repeat: no-repeat; /* Add this to prevent repetition */
+    border-radius: 300px 300px 10px 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 3/4;
+    text-align: center;
+    border: 2px solid #250227;
+    position: relative;
+    opacity: 0.6;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.5s ease;
+}
+/* Clase que se añadirá mediante JavaScript cuando se acceda correctamente */
+.login-success {
+    border: 3px solid #34bf6f;
+    /* Resplandor más grande con colores verdes y azules en lugar de amarillos */
+    box-shadow: 
+        0 0 60px rgba(45, 238, 119, 0.7),
+        0 0 100px rgba(52, 1, 75, 0.5),
+        0 0 130px rgba(255, 255, 255, 0.6);
+    animation: pulseBorder 1.5s infinite alternate;
+    /* Asegurar que el contenido permanezca dentro de los límites */
+    overflow: hidden;
+}
+
+/* Animación para el borde brillante - Sin colores amarillos */
+@keyframes pulseBorder {
+    0% {
+        box-shadow: 
+            0 0 50px rgba(87, 247, 143, 0.7),
+            0 0 80px rgba(22, 159, 88, 0.6),
+            0 0 110px rgba(52, 1, 75, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 0 70px rgba(45, 238, 119, 0.8),
+            0 0 100px rgba(52, 1, 75, 0.6),
+            0 0 150px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        border-color: #e6f2eb;
+        box-shadow: 
+            0 0 50px rgba(22, 159, 88, 0.9),
+            0 0 90px rgba(52, 1, 75, 0.7),
+            0 0 130px rgba(87, 247, 143, 0.5);
+    }
+}
+
+.login-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: clamp(12px, 3vw, 14px); /* Tamaño de fuente responsivo */
+    text-shadow: 5px 5px 4px rgb(10, 120, 0);
+    border-color: rgb(255, 255, 255);
+    font-family: "anironb";
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input {
+    width: 80%;
+    max-width: 300px;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #0d0d0d;
+    background-color: rgba(255, 255, 255, 0.909);
+    border-radius: 5px;
+    font-size: clamp(14px, 2vw, 16px);
+    color: #1d0227;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: none;
+
+
+
+}
+
+.login-button {
+    background: linear-gradient(to bottom, #243224 0%, #230233 100%);
+    color: #fefefe;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: "anironb";
+    font-size: clamp(14px, 2vw, 16px);
+    cursor: pointer;
+    width: 80%;
+    max-width: 300px;
+    margin-top: 10px;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.login-button:hover {
+    background: linear-gradient(to bottom, #37a956 0%, #22854a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+}
+
+/* Añadir un pequeño adorno en el fondo, como una sutil silueta de inscripciones */
+.letters {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: url(../storage/images/letras-removebg-preview.png) repeat-x;
+    background-size: contain;
+    z-index: -1;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .login-container {
+        border-radius: 150px 150px 20px 20px;
+        padding: 30px;
+    }
+    .login-title {
+        position: relative;
+        align-items: center;
+        background: linear-gradient(to bottom, #243224 0%, #230233 100%);
+        box-shadow: 
+        0 0 60px rgba(45, 238, 119, 0.7),
+        0 0 100px rgba(52, 1, 75, 0.5),
+        0 0 130px rgba(255, 255, 255, 0.6);
+        color: #f1f2ee;
+        border-radius: 5%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        border-radius: 100px 100px 15px 15px;
+        padding: 20px;
+        aspect-ratio: 2/3; /* Proporción ligeramente diferente para móviles */
+    }
+    
+    .login-title {
+        margin-bottom: 10px;
+    }
+
+    
+    .login-form input,
+    .login-button,
+    .error-message {
+        width: 90%;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-height: 500px) {
+    .login-container {
+        aspect-ratio: auto;
+        height: 80vh;
+        max-height: 600px;
+    }
+    
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .login-container {
+        max-width: 700px;
+    }
+}
