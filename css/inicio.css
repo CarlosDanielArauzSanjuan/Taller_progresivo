@@ -50,12 +50,11 @@ body::before {
 
 }
 
-/* Fix the background to prevent distortion */
 .login-container {
     background: url(../storage/images/d676fxx-1d8afabd-22af-4f67-b398-d960bc2747e2.jpeg);
-    background-size: cover; /* Keep this */
-    background-position: center; /* Keep this */
-    background-repeat: no-repeat; /* Add this to prevent repetition */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     border-radius: 300px 300px 10px 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.8);
     padding: 40px;
@@ -66,7 +65,7 @@ body::before {
     text-align: center;
     border: 2px solid #250227;
     position: relative;
-    opacity: 0.6;
+    opacity: 0.65;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -74,6 +73,7 @@ body::before {
     transition: all 0.5s ease;
 }
 /* Clase que se añadirá mediante JavaScript cuando se acceda correctamente */
+
 .login-success {
     border: 3px solid #34bf6f;
     /* Resplandor más grande con colores verdes y azules en lugar de amarillos */
@@ -81,26 +81,31 @@ body::before {
         0 0 60px rgba(45, 238, 119, 0.7),
         0 0 100px rgba(52, 1, 75, 0.5),
         0 0 130px rgba(255, 255, 255, 0.6);
-    animation: pulseBorder 1.5s infinite alternate;
+        animation: pulseBorder 2.4s linear;
+    /* animation: pulseBorder 1.5s infinite alternate; */
     /* Asegurar que el contenido permanezca dentro de los límites */
     overflow: hidden;
+
 }
 
-/* Animación para el borde brillante - Sin colores amarillos */
+/* Animación para el borde brillante */
 @keyframes pulseBorder {
     0% {
+        scale: 1.1;
         box-shadow: 
             0 0 50px rgba(87, 247, 143, 0.7),
             0 0 80px rgba(22, 159, 88, 0.6),
             0 0 110px rgba(52, 1, 75, 0.4);
     }
     50% {
+        scale: 1.8;
         box-shadow: 
             0 0 70px rgba(45, 238, 119, 0.8),
             0 0 100px rgba(52, 1, 75, 0.6),
             0 0 150px rgba(255, 255, 255, 0.5);
     }
     100% {
+        scale:2.4;
         border-color: #e6f2eb;
         box-shadow: 
             0 0 50px rgba(22, 159, 88, 0.9),

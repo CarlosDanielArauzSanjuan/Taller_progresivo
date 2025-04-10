@@ -2,3 +2,29 @@
     font-family: "anironb";
     src: url(../storage/font/aniron/anirb___.ttf);
 }
+@font-face {
+    font-family: "anironm";
+    src: url(../storage/font/aniron/anirm___.ttf);
+}
+/* Estilos base y variables */
+:root {
+    /* Tema claro - Gondor/Rivendel/Lothlorien */
+    --light-primary: #e0dcc8;
+    --light-secondary: #bdb396;
+    --light-accent: #7d9eb2;
+    --light-text: #333333;
+    --light-header: #496373;
+    --light-border: #c0b28b;
+    --light-card: #f5f3e8;
+    --light-shadow: rgba(163, 190, 140, 0.5);
+    
+    /* Tema oscuro - Mordor/Angmar */
+    --dark-primary: #1a1a1a;
+    --dark-secondary: #2d2d2d;
+    --dark-accent: #a32c28;
+    --dark-text: #e0e0e0;
+    --dark-header: #4d0f0d;
+    --dark-border: #854342;
+    --dark-card: #2d2d2d;
+    --dark-shadow: rgba(69, 163, 31, 0.4);
+}
