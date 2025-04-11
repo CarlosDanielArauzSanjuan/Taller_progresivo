@@ -1,269 +1,423 @@
-const questions = [
+// Personajes con características y emojis
+const characters = {
+    "Frodo": {
+      description: "Valiente y determinado, cargas con grandes responsabilidades a pesar del miedo.",
+      emoji: "💍",
+      traits: ["valiente", "leal", "humilde", "resiliente", "pacífico"]
+    },
+    "Gandalf": {
+      description: "Sabio consejero y poderoso mago que guía a otros con astucia e inteligencia.",
+      emoji: "✨",
+      traits: ["sabio", "poderoso", "estratégico", "independiente", "mentor"]
+    },
+    "Aragorn": {
+      description: "Líder nato y guerrero valiente, dispuesto a defender lo que es justo.",
+      emoji: "👑",
+      traits: ["honorable", "valiente", "líder", "protector", "fuerte"]
+    },
+    "Sam": {
+      description: "Increíblemente leal y servicial, siempre apoyando a quienes amas.",
+      emoji: "🌱",
+      traits: ["leal", "servicial", "práctico", "modesto", "persistente"]
+    },
+    "Galadriel": {
+      description: "Sabia y poderosa, con gran visión y capacidad para inspirar a otros.",
+      emoji: "⭐",
+      traits: ["sabia", "poderosa", "bella", "misteriosa", "protectora"]
+    },
+    "Legolas": {
+      description: "Ágil y preciso, con gran conexión con la naturaleza y habilidades impresionantes.",
+      emoji: "🏹",
+      traits: ["ágil", "observador", "paciente", "preciso", "natural"]
+    },
+    "Gimli": {
+      description: "Valiente y testarudo, con gran lealtad hacia tus amigos y principios.",
+      emoji: "⚒️",
+      traits: ["fuerte", "leal", "obstinado", "directo", "apasionado"]
+    },
+    "Éowyn": {
+      description: "Valiente y rebelde, no te detienes ante las normas sociales cuando luchas por tus sueños.",
+      emoji: "⚔️",
+      traits: ["valiente", "rebelde", "determinada", "apasionada", "independiente"]
+    },
+    "Saruman": {
+      description: "Inteligente y estratégico, pero quizás demasiado ambicioso y dispuesto a usar cualquier medio.",
+      emoji: "🔮",
+      traits: ["inteligente", "ambicioso", "manipulador", "poderoso", "pragmático"]
+    },
+    "Gollum/Sméagol": {
+      description: "Con dos caras: una oscura y posesiva, otra vulnerable y nostálgica.",
+      emoji: "🐟",
+      traits: ["astuto", "obsesivo", "dividido", "superviviente", "solitario"]
+    }
+  };
+  
+  // Preguntas con emojis
+  const questions = [
     {
-      text: "¿Qué valoras más en un amigo?",
+      text: "🤝 ¿Qué valoras más en un amigo?",
       options: {
-        A: { text: "Lealtad", characters: ["Frodo", "Sam", "Bilbo"] },
-        B: { text: "Valentía", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Sabiduría", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Astucia", characters: ["Gollum", "Saruman"] },
-        E: { text: "Poder", characters: ["Sauron", "Smaug"] }
+        A: { text: "Lealtad incondicional", traits: ["leal", "servicial"] },
+        B: { text: "Valentía para defender lo justo", traits: ["valiente", "honorable"] },
+        C: { text: "Sabiduría y buenos consejos", traits: ["sabio", "mentor"] },
+        D: { text: "Ingenio y adaptabilidad", traits: ["astuto", "superviviente"] },
+        E: { text: "Sinceridad, aunque duela", traits: ["directo", "independiente"] }
       }
     },
     {
-      text: "¿Cuál es tu mayor fortaleza?",
+      text: "💪 ¿Cuál consideras que es tu mayor fortaleza?",
       options: {
-        A: { text: "Resiliencia", characters: ["Frodo", "Sam"] },
-        B: { text: "Liderazgo", characters: ["Aragorn", "Thorin"] },
-        C: { text: "Conocimiento", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Ingenio", characters: ["Gollum", "Saruman"] },
-        E: { text: "Ambición", characters: ["Sauron", "Smaug"] }
+        A: { text: "Persistencia ante las dificultades", traits: ["resiliente", "persistente"] },
+        B: { text: "Capacidad de liderar e inspirar", traits: ["líder", "honorable"] },
+        C: { text: "Conocimiento y sabiduría", traits: ["sabio", "inteligente"] },
+        D: { text: "Adaptabilidad y astucia", traits: ["astuto", "pragmático"] },
+        E: { text: "Habilidad para alcanzar mis metas", traits: ["determinada", "ambicioso"] }
       }
     },
     {
-      text: "¿Qué te motiva en la vida?",
+      text: "⭐ ¿Qué te motiva principalmente en la vida?",
       options: {
-        A: { text: "Amistad", characters: ["Frodo", "Sam", "Bilbo"] },
-        B: { text: "Honor", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Conocimiento", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Supervivencia", characters: ["Gollum", "Saruman"] },
-        E: { text: "Dominio", characters: ["Sauron", "Smaug"] }
+        A: { text: "Ayudar a los que quiero", traits: ["servicial", "leal"] },
+        B: { text: "Hacer lo correcto y honorable", traits: ["honorable", "protector"] },
+        C: { text: "Descubrir y compartir conocimiento", traits: ["sabio", "mentor"] },
+        D: { text: "Asegurar mi bienestar y supervivencia", traits: ["superviviente", "pragmático"] },
+        E: { text: "Alcanzar mis ambiciones y sueños", traits: ["ambicioso", "apasionado"] }
       }
     },
     {
-      text: "¿Cómo enfrentas los desafíos?",
+      text: "🏔️ ¿Cómo enfrentas los grandes desafíos?",
       options: {
-        A: { text: "Con determinación", characters: ["Frodo", "Sam"] },
-        B: { text: "Con coraje", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Con sabiduría", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Con astucia", characters: ["Gollum", "Saruman"] },
-        E: { text: "Con fuerza bruta", characters: ["Sauron", "Smaug"] }
+        A: { text: "Con determinación, paso a paso", traits: ["resiliente", "persistente"] },
+        B: { text: "Con coraje, enfrentándolos directamente", traits: ["valiente", "fuerte"] },
+        C: { text: "Con estrategia y planificación", traits: ["sabio", "estratégico"] },
+        D: { text: "Buscando soluciones alternativas", traits: ["astuto", "adaptable"] },
+        E: { text: "Confiando en mis habilidades superiores", traits: ["poderoso", "confiado"] }
       }
     },
     {
-      text: "¿Qué lugar prefieres?",
+      text: "🏞️ ¿En qué lugar te sentirías más a gusto?",
       options: {
-        A: { text: "La Comarca", characters: ["Frodo", "Sam", "Bilbo"] },
-        B: { text: "Gondor", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Rivendel", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Isengard", characters: ["Saruman"] },
-        E: { text: "Mordor", characters: ["Sauron", "Smaug"] }
+        A: { text: "Un hogar acogedor rodeado de amigos", traits: ["modesto", "pacífico"] },
+        B: { text: "Una gran ciudad con historia y tradición", traits: ["honorable", "protector"] },
+        C: { text: "Una biblioteca o lugar de conocimiento", traits: ["sabio", "observador"] },
+        D: { text: "En constante movimiento, sin ataduras", traits: ["independiente", "solitario"] },
+        E: { text: "En lugares misteriosos y poderosos", traits: ["misterioso", "poderoso"] }
       }
     },
     {
-      text: "¿Cuál es tu arma preferida?",
+      text: "⚔️ Si tuvieras que elegir un arma, ¿cuál sería?",
       options: {
-        A: { text: "Espada", characters: ["Aragorn", "Éowyn"] },
-        B: { text: "Bastón", characters: ["Gandalf", "Saruman"] },
-        C: { text: "Arco", characters: ["Legolas", "Bard"] },
-        D: { text: "Hacha", characters: ["Gimli", "Thorin"] },
-        E: { text: "Anillo de poder", characters: ["Sauron", "Gollum"] }
+        A: { text: "Una espada confiable y resistente", traits: ["valiente", "honorable"] },
+        B: { text: "Un bastón mágico o vara de poder", traits: ["poderoso", "sabio"] },
+        C: { text: "Un arco para atacar con precisión", traits: ["preciso", "observador"] },
+        D: { text: "Un hacha potente y contundente", traits: ["fuerte", "directo"] },
+        E: { text: "Mi astucia e inteligencia", traits: ["astuto", "manipulador"] }
       }
     },
     {
-      text: "¿Qué criatura te representa mejor?",
+      text: "🌍 ¿Cómo describirías tu relación con el mundo?",
       options: {
-        A: { text: "Hobbit", characters: ["Frodo", "Sam", "Bilbo"] },
-        B: { text: "Humano", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Elfo", characters: ["Legolas", "Elrond"] },
-        D: { text: "Enano", characters: ["Gimli", "Thorin"] },
-        E: { text: "Dragón", characters: ["Smaug"] }
+        A: { text: "Disfruto de las pequeñas cosas simples", traits: ["modesto", "pacífico"] },
+        B: { text: "Siento la responsabilidad de protegerlo", traits: ["protector", "honorable"] },
+        C: { text: "Busco comprenderlo y aprender de él", traits: ["sabio", "observador"] },
+        D: { text: "Lo veo como un lugar a veces hostil", traits: ["superviviente", "solitario"] },
+        E: { text: "Creo que podría ser mejor bajo mi influencia", traits: ["ambicioso", "poderoso"] }
       }
     },
     {
-      text: "¿Qué valoras más en una comunidad?",
+      text: "👥 ¿Qué valoras más en una comunidad?",
       options: {
-        A: { text: "Unidad", characters: ["Frodo", "Sam", "Bilbo"] },
-        B: { text: "Justicia", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Conocimiento", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Orden", characters: ["Saruman"] },
-        E: { text: "Poder", characters: ["Sauron"] }
+        A: { text: "La unidad y apoyo mutuo", traits: ["leal", "servicial"] },
+        B: { text: "El honor y las tradiciones", traits: ["honorable", "protector"] },
+        C: { text: "El conocimiento y sabiduría colectiva", traits: ["sabio", "mentor"] },
+        D: { text: "La libertad individual", traits: ["independiente", "rebelde"] },
+        E: { text: "El orden y la jerarquía clara", traits: ["pragmático", "líder"] }
       }
     },
     {
-      text: "¿Cuál es tu mayor debilidad?",
+      text: "🧩 ¿Cuál consideras tu mayor debilidad?",
       options: {
-        A: { text: "Inseguridad", characters: ["Frodo", "Bilbo"] },
-        B: { text: "Impulsividad", characters: ["Éowyn", "Thorin"] },
-        C: { text: "Arrogancia", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Codicia", characters: ["Gollum", "Smaug"] },
-        E: { text: "Sed de poder", characters: ["Sauron", "Saruman"] }
+        A: { text: "A veces dudo de mis capacidades", traits: ["humilde", "modesto"] },
+        B: { text: "Puedo ser demasiado impulsivo", traits: ["apasionado", "valiente"] },
+        C: { text: "Tiendo a sobreanalizar las situaciones", traits: ["sabio", "observador"] },
+        D: { text: "Desconfío fácilmente de los demás", traits: ["solitario", "superviviente"] },
+        E: { text: "Puedo ser demasiado ambicioso", traits: ["ambicioso", "manipulador"] }
       }
     },
     {
-      text: "¿Qué tipo de líder eres?",
+      text: "👑 Como líder, ¿cuál sería tu enfoque?",
       options: {
-        A: { text: "Servicial", characters: ["Frodo", "Sam"] },
-        B: { text: "Valiente", characters: ["Aragorn", "Éowyn"] },
-        C: { text: "Sabio", characters: ["Gandalf", "Elrond"] },
-        D: { text: "Estratégico", characters: ["Saruman", "Galadriel"] },
-        E: { text: "Dominante", characters: ["Sauron", "Thorin"] }
+        A: { text: "Servir y apoyar a mi equipo", traits: ["servicial", "leal"] },
+        B: { text: "Liderar con el ejemplo y valentía", traits: ["valiente", "honorable"] },
+        C: { text: "Aconsejar con sabiduría", traits: ["sabio", "mentor"] },
+        D: { text: "Ser pragmático y eficiente", traits: ["pragmático", "astuto"] },
+        E: { text: "Tener una visión clara y exigir excelencia", traits: ["poderoso", "ambicioso"] }
       }
     }
   ];
   
-  let currentQuestionIndex = 0;
-  const userAnswers = [];
-  const characterScores = {};
-  const STORAGE_KEY = 'tolkien_test_progress';
+  // Utilidad para capitalizar primera letra
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   
-  // Inicializar el test
+  // Variables globales
+  let currentQuestionIndex = 0;
+  let currentUser = "";
+  let userTraits = {};
+  const STORAGE_KEY = 'tolkien_test_results';
+  
+  // Inicializar la aplicación
   window.onload = () => {
     document.getElementById('total-questions').textContent = questions.length;
-    if (hasStoredProgress()) {
-      document.getElementById('show-saved-result').style.display = 'inline';
-      if (confirm("🔄 Tienes una sesión anterior. ¿Quieres continuar desde donde la dejaste?")) {
-        loadProgress();
-        showQuestion();
-      } else {
-        clearProgress();
-        showQuestion();
-      }
-    } else {
-      showQuestion();
-    }
+    loadPreviousResults();
   };
+  
+  // Animaciones con fade
+  function fadeOut(element, callback) {
+    element.style.opacity = 1;
+    let opacity = 1;
+    const timer = setInterval(() => {
+      if (opacity <= 0.1) {
+        clearInterval(timer);
+        element.style.opacity = 0;
+        if (callback) callback();
+      }
+      element.style.opacity = opacity;
+      opacity -= 0.1;
+    }, 30);
+  }
+  
+  function fadeIn(element) {
+    element.style.opacity = 0;
+    let opacity = 0;
+    const timer = setInterval(() => {
+      if (opacity >= 1) {
+        clearInterval(timer);
+      }
+      element.style.opacity = opacity;
+      opacity += 0.1;
+    }, 30);
+  }
+  function spawnElvenRunes() {
+    const runes = ["ᚨ", "ᚱ", "ᛞ", "✧", "ᛟ", "ᚷ"];
+    const numRunes = 40;
+  
+    for (let i = 0; i < numRunes; i++) {
+      const rune = document.createElement("div");
+      rune.classList.add("elven-particle");
+      rune.textContent = runes[Math.floor(Math.random() * runes.length)];
+      rune.style.left = `${Math.random() * 100}vw`;
+      rune.style.top = `${Math.random() * 100}vh`;
+      rune.style.fontSize = `${Math.random() * 1.5 + 0.8}rem`;
+      rune.style.animationDelay = `${Math.random() * 10}s`;
+      document.body.appendChild(rune);
+    }
+  }
+  
+  window.addEventListener("load", spawnElvenRunes);
+  
+  // Iniciar el test
+  function startQuiz() {
+    const nameInput = document.getElementById('user-name');
+    currentUser = nameInput.value.trim();
+    
+    if (!currentUser) {
+      alert('Por favor, ingresa tu nombre para comenzar.');
+      return;
+    }
+    
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
+    
+    // Reiniciar variables
+    currentQuestionIndex = 0;
+    userTraits = {};
+    
+    showQuestion();
+  }
   
   // Mostrar la pregunta actual
   function showQuestion() {
     if (currentQuestionIndex >= questions.length) {
-      showResult();
+      calculateResult();
       return;
     }
   
     const q = questions[currentQuestionIndex];
-    document.getElementById('question-container').textContent = q.text;
-    document.getElementById('current-question').textContent = currentQuestionIndex + 1;
-    
+    const questionDiv = document.getElementById('question-container');
     const optionsDiv = document.getElementById('options-container');
-    optionsDiv.innerHTML = '';
   
-    for (let key in q.options) {
-      const btn = document.createElement('button');
-      btn.textContent = `${key}) ${q.options[key].text}`;
-      btn.onclick = () => selectOption(key);
-      optionsDiv.appendChild(btn);
-    }
+    fadeOut(questionDiv, () => {
+      fadeOut(optionsDiv, () => {
+        // Actualizar contenido
+        questionDiv.textContent = q.text;
+        document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+        
+        optionsDiv.innerHTML = '';
+        for (let key in q.options) {
+          const btn = document.createElement('button');
+          btn.textContent = `${key}) ${q.options[key].text}`;
+          btn.onclick = () => selectOption(key);
+          optionsDiv.appendChild(btn);
+        }
+  
+        // Mostrar suavemente
+        fadeIn(questionDiv);
+        fadeIn(optionsDiv);
+      });
+    });
   }
   
   // Seleccionar una opción
   function selectOption(optionKey) {
-    const selected = questions[currentQuestionIndex].options[optionKey];
-    userAnswers.push(selected.characters);
-  
-    selected.characters.forEach(char => {
-      characterScores[char] = (characterScores[char] || 0) + 1;
+    const selectedOption = questions[currentQuestionIndex].options[optionKey];
+    
+    // Efecto visual al botón seleccionado
+    const buttons = document.querySelectorAll('#options-container button');
+    buttons.forEach(btn => btn.disabled = true); // desactivar botones
+    const selectedBtn = Array.from(buttons).find(b => b.textContent.startsWith(optionKey));
+    if (selectedBtn) selectedBtn.classList.add('selected-option');
+    
+    // Guardar rasgos
+    selectedOption.traits.forEach(trait => {
+      userTraits[trait] = (userTraits[trait] || 0) + 1;
     });
   
     currentQuestionIndex++;
-    saveProgress();
     
-    if (currentQuestionIndex < questions.length) {
+    // Esperar un momento antes de cambiar de pregunta
+    setTimeout(() => {
       showQuestion();
-    } else {
-      showResult();
-    }
+    }, 400);
   }
   
-  // Mostrar el resultado final
-  function showResult() {
+  // Calcular el resultado
+  function calculateResult() {
+    let maxMatch = 0;
+    let bestCharacter = "";
+    
+    // Comparamos rasgos del usuario con cada personaje
+    for (const [charName, charData] of Object.entries(characters)) {
+      let matchScore = 0;
+      let totalPossibleScore = 0;
+      
+      // Evaluar la coincidencia de rasgos
+      charData.traits.forEach(trait => {
+        if (userTraits[trait]) {
+          matchScore += userTraits[trait];
+        }
+        totalPossibleScore += questions.length / 5; // Valor máximo posible por rasgo
+      });
+      
+      // Calcular porcentaje de coincidencia
+      const matchPercentage = totalPossibleScore > 0 ? (matchScore / totalPossibleScore) * 100 : 0;
+      
+      if (matchPercentage > maxMatch) {
+        maxMatch = matchPercentage;
+        bestCharacter = charName;
+      }
+    }
+    
+    // Guardar resultado
+    const finalMatch = Math.round(maxMatch);
+    saveResult(bestCharacter, finalMatch);
+    
+    // Mostrar resultado
+    showResult(bestCharacter, finalMatch);
+  }
+  
+  // Mostrar el resultado
+  function showResult(characterName, matchPercentage) {
     document.getElementById('quiz-container').style.display = 'none';
-    document.getElementById('progress-indicator').style.display = 'none';
     const resultDiv = document.getElementById('result-container');
     resultDiv.style.display = 'block';
   
-    const maxScore = Math.max(...Object.values(characterScores));
-    const topCharacters = Object.keys(characterScores).filter(char => characterScores[char] === maxScore);
-  
-    resultDiv.innerHTML = `
-      <h2>Resultado Final</h2>
-      <div class="top-characters">
-        <h3>Tu personaje es: ${topCharacters.join(", ")}</h3>
-        <p>Puntuación: ${maxScore} de ${questions.length}</p>
-      </div>
-      <h3>Todas las puntuaciones:</h3>
-    `;
-  
-    // Ordenar personajes por puntuación
-    const sortedCharacters = Object.keys(characterScores).sort((a, b) => 
-      characterScores[b] - characterScores[a]
-    );
-  
-    sortedCharacters.forEach(char => {
-      const isTop = topCharacters.includes(char);
-      resultDiv.innerHTML += `
-        <p${isTop ? ' class="top-character"' : ''}>
-          <strong>${char}</strong>: ${characterScores[char]} puntos
-        </p>
-      `;
-    });
-  
-    resultDiv.innerHTML += `
-      <button onclick="restartQuiz()">Reiniciar Test</button>
-      <button onclick="shareResult()">Compartir Resultado</button>
-    `;
+    const character = characters[characterName];
     
-    // Guardar resultado final
-    saveProgress();
+    resultDiv.innerHTML = `
+      <div class="character-result animated-result">
+        <h2>¡${currentUser}, eres como ${characterName}! ${character.emoji}</h2>
+        <p><strong>Compatibilidad:</strong> ${matchPercentage}%</p>
+        <p>${character.description}</p>
+        <h3>Tus rasgos destacados:</h3>
+        <ul>
+          ${character.traits.map(trait => `<li>${capitalize(trait)}</li>`).join('')}
+        </ul>
+        <div class="actions">
+          <button onclick="restartQuiz()">Reiniciar Test</button>
+          <button onclick="shareResult('${characterName}')">Compartir Resultado</button>
+          <button onclick="goToStart()">Volver al Inicio</button>
+        </div>
+      </div>
+    `;
+  }
+  
+  // Cargar resultados anteriores
+  function loadPreviousResults() {
+    const savedResults = localStorage.getItem(STORAGE_KEY);
+    if (savedResults) {
+      const resultsObj = JSON.parse(savedResults);
+      const resultsList = document.getElementById('previous-results-list');
+      resultsList.innerHTML = '';
+      
+      const users = Object.keys(resultsObj);
+      if (users.length > 0) {
+        document.getElementById('previous-results-container').style.display = 'block';
+        
+        users.forEach(user => {
+          const li = document.createElement('li');
+          li.textContent = `${user}: ${resultsObj[user].character} ${characters[resultsObj[user].character].emoji}`;
+          li.onclick = () => showSavedResult(user);
+          li.style.cursor = 'pointer';
+          li.style.textDecoration = 'underline';
+          resultsList.appendChild(li);
+        });
+      }
+    }
   }
   
   // Mostrar resultado guardado
-  function showSavedResult() {
-    if (!hasStoredProgress()) {
-      alert("No hay resultados guardados.");
+  function showSavedResult(username) {
+    const savedResults = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (!savedResults || !savedResults[username]) {
+      alert("No se encontró el resultado para este usuario.");
       return;
     }
-  
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    const scores = saved.characterScores;
     
-    if (!scores || Object.keys(scores).length === 0) {
-      alert("No hay puntuaciones guardadas.");
-      return;
-    }
-  
-    const maxScore = Math.max(...Object.values(scores));
-    const topCharacters = Object.keys(scores).filter(char => scores[char] === maxScore);
-  
+    const userResult = savedResults[username];
+    const characterName = userResult.character;
+    const matchPercentage = userResult.matchPercentage;
+    
+    document.getElementById('start-screen').style.display = 'none';
     document.getElementById('quiz-container').style.display = 'none';
-    document.getElementById('progress-indicator').style.display = 'none';
+    
     const resultDiv = document.getElementById('result-container');
     resultDiv.style.display = 'block';
     
+    const character = characters[characterName];
+    
     resultDiv.innerHTML = `
-      <h2>Resultado Guardado</h2>
-      <div class="top-characters">
-        <h3>Tu personaje es: ${topCharacters.join(", ")}</h3>
-        <p>Puntuación: ${maxScore}</p>
+      <div class="character-result animated-result">
+        <h2>Resultado guardado para ${username}</h2>
+        <h3>${username} es como ${characterName}! ${character.emoji}</h3>
+        <p><strong>Compatibilidad:</strong> ${matchPercentage}%</p>
+        <p>${character.description}</p>
+        <h3>Rasgos destacados:</h3>
+        <ul>
+          ${character.traits.map(trait => `<li>${capitalize(trait)}</li>`).join('')}
+        </ul>
+        <div class="actions">
+          <button onclick="startNewTest()">Hacer un nuevo test</button>
+          <button onclick="goToStart()">Volver al Inicio</button>
+        </div>
       </div>
-      <h3>Todas las puntuaciones:</h3>
-    `;
-  
-    // Ordenar personajes por puntuación
-    const sortedCharacters = Object.keys(scores).sort((a, b) => 
-      scores[b] - scores[a]
-    );
-  
-    sortedCharacters.forEach(char => {
-      const isTop = topCharacters.includes(char);
-      resultDiv.innerHTML += `
-        <p${isTop ? ' class="top-character"' : ''}>
-          <strong>${char}</strong>: ${scores[char]} puntos
-        </p>
-      `;
-    });
-  
-    resultDiv.innerHTML += `
-      <button onclick="restartQuiz()">Reiniciar Test</button>
-      <button onclick="continueSavedQuiz()">Continuar Test</button>
     `;
   }
   
   // Compartir resultado
-  function shareResult() {
-    const maxScore = Math.max(...Object.values(characterScores));
-    const topCharacters = Object.keys(characterScores).filter(char => characterScores[char] === maxScore);
-    
-    const text = `¡Mi personaje en el Test de Personalidad de Tolkien es: ${topCharacters.join(", ")}!`;
+  function shareResult(characterName) {
+    const text = `¡Según el Test de Personalidad de Tolkien, soy como ${characterName} ${characters[characterName].emoji}!`;
     
     if (navigator.share) {
       navigator.share({
@@ -290,82 +444,52 @@ const questions = [
     alert('Resultado copiado al portapapeles. ¡Puedes compartirlo donde quieras!');
   }
   
+  // Guardar resultado
+  function saveResult(character, matchPercentage) {
+    let savedResults = localStorage.getItem(STORAGE_KEY);
+    let resultsObj = savedResults ? JSON.parse(savedResults) : {};
+    
+    resultsObj[currentUser] = {
+      character: character,
+      matchPercentage: matchPercentage,
+      date: new Date().toISOString()
+    };
+    
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(resultsObj));
+  }
+  
+  // Eliminar los resultados
+  function clearAllResults() {
+    if (confirm("¿Estás seguro de que deseas eliminar todos los resultados anteriores? Esta acción no se puede deshacer.")) {
+      localStorage.removeItem(STORAGE_KEY);
+      document.getElementById('previous-results-list').innerHTML = '';
+      document.getElementById('previous-results-container').style.display = 'none';
+      alert("Todos los resultados han sido eliminados.");
+    }
+  }
+  
   // Reiniciar el test
   function restartQuiz() {
     currentQuestionIndex = 0;
-    userAnswers.length = 0;
-    Object.keys(characterScores).forEach(key => delete characterScores[key]);
-    
-    clearProgress();
+    userTraits = {};
     
     document.getElementById('result-container').style.display = 'none';
     document.getElementById('quiz-container').style.display = 'block';
-    document.getElementById('progress-indicator').style.display = 'block';
-    document.getElementById('show-saved-result').style.display = 'none';
     
     showQuestion();
   }
   
-  // Continuar test guardado
-  function continueSavedQuiz() {
+  // Iniciar nuevo test
+  function startNewTest() {
+    document.getElementById('user-name').value = '';
+    goToStart();
+  }
+  
+  // Volver al inicio
+  function goToStart() {
     document.getElementById('result-container').style.display = 'none';
-    document.getElementById('quiz-container').style.display = 'block';
-    document.getElementById('progress-indicator').style.display = 'block';
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('start-screen').style.display = 'block';
     
-    showQuestion();
-  }
-  
-  // Guardar progreso
-  function saveProgress() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      currentQuestionIndex,
-      userAnswers,
-      characterScores,
-      timestamp: new Date().getTime()
-    }));
-  }
-  
-  // Cargar progreso
-  function loadProgress() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const data = JSON.parse(saved);
-      currentQuestionIndex = data.currentQuestionIndex || 0;
-      
-      // Limpiar datos actuales
-      userAnswers.length = 0;
-      Object.keys(characterScores).forEach(key => delete characterScores[key]);
-      
-      // Cargar datos guardados
-      if (data.userAnswers && data.userAnswers.length) {
-        data.userAnswers.forEach(characters => userAnswers.push(characters));
-      }
-      
-      if (data.characterScores) {
-        Object.assign(characterScores, data.characterScores);
-      }
-      
-      return true;
-    }
-    return false;
-  }
-  
-  // Verificar si hay progreso guardado
-  function hasStoredProgress() {
-    return localStorage.getItem(STORAGE_KEY) !== null;
-  }
-  
-  // Limpiar progreso
-  function clearProgress() {
-    localStorage.removeItem(STORAGE_KEY);
-  }
-  
-  // Avanzar a la siguiente pregunta
-  function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      showQuestion();
-    } else {
-      showResult();
-    }
+    loadPreviousResults();
   }

@@ -3,21 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Test de Personalidad de Tolkien</title>
+  <link rel="stylesheet" href="../css/test.css">
 </head>
 <body>
   <h1>🧙‍♂️ Test de Personalidad de Tolkien</h1>
-  <div id="quiz-container">
+  
+  <!-- Pantalla de inicio con entrada de nombre -->
+  <div id="start-screen">
+    <h2>Descubre qué personaje de la Tierra Media eres</h2>
+    <p>Ingresa tu nombre para comenzar esta aventura:</p>
+    <input type="text" id="user-name" placeholder="Tu nombre aquí" required>
+    <button id="start-button" onclick="startQuiz()">Comenzar la aventura</button>
+    <div id="previous-results-container" style="display:none; margin-top: 20px;">
+        <h3>Resultados anteriores:</h3>
+        <ul id="previous-results-list"></ul>
+        <button id="clear-results-button" onclick="clearAllResults()">Eliminar todos los resultados</button>
+      </div>
+  </div>
+  
+  <!-- Contenedor del cuestionario -->
+  <div id="quiz-container" style="display:none;">
     <div id="question-container"></div>
     <div id="options-container"></div>
     <div id="navigation">
       <button id="next-button" onclick="nextQuestion()" style="display:none;">Siguiente</button>
       <button id="restart-button" onclick="restartQuiz()" style="display:none;">Reiniciar Test</button>
-      <button id="show-saved-result" onclick="showSavedResult()" style="display:none;">Ver resultado anterior</button>
     </div>
+    <div id="progress-indicator">Pregunta <span id="current-question">1</span> de <span id="total-questions">10</span></div>
   </div>
+  
+  <!-- Contenedor de resultados -->
   <div id="result-container" style="display:none;"></div>
-  <div id="progress-indicator">Pregunta <span id="current-question">1</span> de <span id="total-questions">10</span></div>
 
+  <footer class="footer">
+    <p>&copy; 2025 ARDA y la Tierra Media - by Daniel Arauz 📍</p>
+</footer>
   <script src="../js/test.js"></script>
 </body>
 </html>
