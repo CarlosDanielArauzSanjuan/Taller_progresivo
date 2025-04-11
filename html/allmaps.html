@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Mapas de la Tierra Media</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/mapas.css">
+    <link rel="stylesheet" href="../css/allmaps.css">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <video id="video-bg" autoplay muted loop>
+        <source src="../videos/background.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <header>
+        <h1>Mapas de la Tierra Media</h1>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <main>
+        <!-- 🗺️ Mapa Interactivo -->
+        <div class="container map-section">
+          <h2 class="section-title">🗺️ Mapa Interactivo de la Tierra Media</h2>
+          <div id="mapa"></div>
+        </div>
+      
+        <!-- 🎯 Selector de Mapas Scroll Horizontal -->
+        <div class="map-selector">
+          <div class="map-buttons-wrapper">
+            <div class="map-buttons">
+              <!-- Los botones se insertan dinámicamente desde JS -->
+            </div>
+          </div>
+        </div>
+      
+        <!-- 🖼️ Galería de Mapas -->
+        <div class="container gallery-section">
+          <div class="map-viewer">
+            <div class="map-container">
+              <!-- Las imágenes se cargan dinámicamente con JS -->
+              <div class="map-image active" id="map-0">
+                <img src="/api/placeholder/800/600" alt="Mapa de ARDA EN LA SEGUNDA EDAD" />
+              </div>
+            </div>
+      
+            <div class="map-description">
+              <h2 id="map-title">ARDA EN LA SEGUNDA EDAD</h2>
+              <p id="map-desc">
+                En la Segunda Edad de Arda, Sauron forjó el Anillo Único en el Monte del Destino. Los Númenóreanos prosperaron y finalmente fueron corrompidos por Sauron, lo que llevó a la caída de Númenor. Al final de esta era, la Última Alianza de Elfos y Hombres derrotó a Sauron temporalmente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+    <footer>
+        <p>© 2025 Galería de Mapas de la Tierra Media</p>
+    </footer>
+
+    <script src="../js/mapas.js"></script>
+    <script src="../js/allmaps.js"></script>
+</body>
+</html>
