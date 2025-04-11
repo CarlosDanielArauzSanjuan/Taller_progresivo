@@ -8,6 +8,7 @@
     text-align: center;
 }
 
+
 body {
     /* Fondo inspirado en El Señor de los Anillos con moria */
     background-size: cover;
@@ -33,6 +34,15 @@ body::before {
     pointer-events: none;
 }
 
+canvas#magicParticles {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+}
 .error-message {
     color: #000000; 
     margin-top: 15px;
@@ -48,29 +58,114 @@ body::before {
     margin-right: auto;
     opacity: 0.9;
 
+}/* --- EFECTO DE ENTRADA MÁGICO AL CUERPO --- */
+body {
+    animation: fadeInBody 4s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInBody {
+    to { opacity: 1; }
+}
+
+/* --- NIEBLA MÍSTICA SOBRE EL LOGIN --- */
+body::before {
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 10%, transparent 80%);
+    animation: fogLoop 20s infinite linear;
+    z-index: 0;
+}
+
+@keyframes fogLoop {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { transform: translateX(0); }
+}
+
+/* --- GLOW DE INPUT Y BOTÓN AL PASAR --- */
+.login-form input:focus,
+.login-button:hover {
+    box-shadow: 0 0 15px 2px #b7f4c2;
+    outline: none;
+    background-color: #f3fff5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- ANILLO ÉLFICO ANIMADO CÍCLICO --- */
+.letters {
+    background: url(../storage/images/letras-removebg-preview.png) repeat-x;
+    background-size: contain;
+    animation: rotateLetters 30s linear infinite;
+    opacity: 0.7;
+    
+}
+
+@keyframes rotateLetters {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+
+/* --- EFECTO DE GLOW CICLANTE A TÍTULO --- */
+.login-title {
+    animation: glowText 4s ease-in-out infinite;
+}
+
+@keyframes glowText {
+    0%, 100% {
+        text-shadow: 0 0 40px #64ffda, 0 0 20px #14ffec, 0 0 30px #0d7377;
+    }
+    50% {
+        text-shadow: 0 0 40px #f8f8f8, 0 0 40px #0ff, 0 0 60px #0ff;
+    }
+}
+
+
+/* --- PARTICULAS MAGICAS (si se agregan vía JS) --- */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatParticle 12s infinite ease-in;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+    }
 }
 
 .login-container {
+
     background: url(../storage/images/d676fxx-1d8afabd-22af-4f67-b398-d960bc2747e2.jpeg);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     border-radius: 300px 300px 10px 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow:  0 0 20px rgba(52, 1, 75, 0.5),0 5px 400px rgb(2, 42, 70);
     padding: 40px;
     width: 90%;
     max-width: 600px;
     height: auto;
     aspect-ratio: 3/4;
     text-align: center;
-    border: 2px solid #250227;
-    position: relative;
-    opacity: 0.65;
+    position: absolute;
+    opacity: 0.55;
     margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     transition: all 0.5s ease;
+
 }
 /* Clase que se añadirá mediante JavaScript cuando se acceda correctamente */
 
@@ -197,27 +292,63 @@ body::before {
 
 /* Media queries para diferentes tamaños de pantalla */
 @media (max-width: 768px) {
+    
+    @keyframes glowText {
+        0%, 100% {
+            text-shadow: 0 0 40px #64ffda, 0 0 20px #14ffec, 0 0 30px #0d7377;
+        }
+        50% {
+            text-shadow: 0 0 40px #f8f8f8, 0 0 40px #0ff, 0 0 60px #0ff;
+        }
+    }
     .login-container {
-        border-radius: 150px 150px 20px 20px;
-        padding: 30px;
+        border-radius: 280px 280px 0px 0px;
+
+        /* padding: 30px; */
     }
     .login-title {
+        animation: glowText 4s ease-in-out infinite;
+        opacity: 0.8;
+        padding: 0.5rem 1rem; /* Padding reducido en móviles */
         position: relative;
-        align-items: center;
-        background: linear-gradient(to bottom, #243224 0%, #230233 100%);
-        box-shadow: 
-        0 0 60px rgba(45, 238, 119, 0.7),
-        0 0 100px rgba(52, 1, 75, 0.5),
-        0 0 130px rgba(255, 255, 255, 0.6);
-        color: #f1f2ee;
-        border-radius: 5%;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.05); /* Fondo semi-transparente */
+        backdrop-filter: blur(0.5px); /* Efecto de niebla */
+        color: #fff;
+        font-size: clamp(16px, 5vw, 24px);
+        text-shadow: 
+            0 0 5px #cde6c9,
+            0 0 10px #9cffdb,
+            0 0 20px #48ffe3,
+            0 0 40px #0ff;
+        animation: elvenGlow 6s ease-in-out infinite;
+        margin-bottom: 15px;
+        text-align: center;
+        -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+        overflow: hidden;
+    }
+    @keyframes elvenGlowStrong {
+        0%, 100% {
+            text-shadow: 
+                0 0 10px #fcccff,
+                0 0 20px #89fff2,
+                0 0 40px #33fff2,
+                0 0 60px #0ff;
+        }
+        50% {
+            text-shadow: 
+                0 0 20px #ffffff,
+                0 0 40px #66fff7,
+                0 0 60px #1affff,
+                0 0 80px #0ff;
+        }
     }
 
 }
 
 @media (max-width: 480px) {
     .login-container {
-        border-radius: 100px 100px 15px 15px;
+        border-radius: 300px 300px 15px 15px;
         padding: 20px;
         aspect-ratio: 2/3; /* Proporción ligeramente diferente para móviles */
     }

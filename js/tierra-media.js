@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Aquí puedes añadir cualquier funcionalidad específica para la página de Tierra Media
     console.log('Página de Tierra Media cargada correctamente');
     
-    // Ejemplo: añadir efectos de hover avanzados a los elementos del menú
     const menuItems = document.querySelectorAll('.menu-item');
     
     menuItems.forEach(item => {
@@ -16,6 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const fog = document.getElementById("fog-transition");
+    setTimeout(() => {
+      fog.style.opacity = 0;
+    }, 800); // Retraso leve para que aparezca apenas entras
+  });
 document.addEventListener('DOMContentLoaded', function() {
     // Array con las rutas de las imágenes de fondo
     const backgroundImages = [

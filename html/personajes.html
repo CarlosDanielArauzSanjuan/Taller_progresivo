@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personajes</title>
+    <link rel="stylesheet" href="../css/personajes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <div class="background-container">
+        <div class="background-image"></div>
+    </div>
+    
+    <header>
+        <h1>Arda y la Tierra Media</h1>
+        <p>Explora todos los Personajes del universo de Tolkien</p>
+        <div class="controls">
+            <button id="theme-toggle" class="theme-btn">
+                <i class="fas fa-moon"></i>
+                <span>Modo Oscuro</span>
+            </button>
+            <div class="music-controls">
+                <button id="prev-track" class="music-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play-pause" class="music-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next-track" class="music-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="mute-toggle" class="music-btn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div id="now-playing">Ninguna canción reproduciendo</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="filters-container">
+            <h2>PERSONAJES</h2>
+            <div class="filter-group">
+                <label for="category-select">Categoría</label>
+            </div>
+            
+            <div id="sub-filters" class="sub-filters">
+                <!-- Los subfiltros dinámicos se cargarán aquí -->
+            </div>
+            
+            <button id="apply-filters" class="button">Aplicar Filtros</button>
+        </div>
+
+        <div class="results-container">
+            <h2>Resultados</h2>
+            <div class="results-header">
+                <span id="results-count">0 resultados encontrados</span>
+                <div class="pagination">
+                    <button id="prev-page" class="button pagination-button" disabled>Anterior</button>
+                    <span id="page-info">Página 1 de 1</span>
+                    <button id="next-page" class="button pagination-button" disabled>Siguiente</button>
+                </div>
+            </div>
+            
+            <div id="results-grid" class="results-grid">
+                <!-- Los resultados se cargarán aquí -->
+                <div class="loading">Cargando datos...</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Creado por un fan de la Tierra Media © 2025</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/personajes.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/music.js"></script>
+</body>
+</html>
