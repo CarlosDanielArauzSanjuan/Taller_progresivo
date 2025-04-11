@@ -4,67 +4,68 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 0,
             title: "ARDA EN LA SEGUNDA EDAD",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/globalArda.jpg",
+
             description: "En la Segunda Edad de Arda, Sauron forjó el Anillo Único en el Monte del Destino. Los Númenóreanos prosperaron y finalmente fueron corrompidos por Sauron, lo que llevó a la caída de Númenor. Al final de esta era, la Última Alianza de Elfos y Hombres derrotó a Sauron temporalmente."
         },
         {
             id: 1,
             title: "BELERIAND",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/belerian.jpg",
             description: "Beleriand fue la gran región occidental de la Tierra Media durante la Primera Edad. Aquí transcurrieron muchas de las historias de los Silmarils, incluyendo las grandes batallas contra Morgoth y sus siervos. Al final de la Primera Edad, Beleriand fue sumergida bajo las aguas durante la Guerra de la Ira."
         },
         {
             id: 2,
             title: "LA COMARCA",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/laComarca.jpg",
             description: "La Comarca es el hogar pacífico de los hobbits, conocido por sus colinas verdes y campos fértiles. Aquí comenzó la aventura de Bilbo Bolsón, y posteriormente la de Frodo, cuando Gandalf visitó Bolsón Cerrado. A pesar de su apariencia idílica, la Comarca fue brevemente ocupada por las fuerzas de Saruman al final de la Guerra del Anillo."
         },
         {
             id: 3,
             title: "EL LEJANO HARAD",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/lejano-harad.jpg",
             description: "El Lejano Harad es una región misteriosa al sur de Gondor, hogar de culturas exóticas y criaturas extrañas como los mûmakil (olifantes). Sus pueblos fueron influenciados por Sauron y enviaron guerreros para luchar contra Gondor en la Guerra del Anillo. Es una tierra de grandes desiertos y selvas tropicales poco exploradas por los pueblos del norte."
         },
         {
             id: 4,
-            title: "MAPA DE LA TERCERA EDAD",
-            image: "/api/placeholder/800/600",
+            title: "ARDA",
+            image: "../storage/images/mapas/Arda-SecondAge.png",
             description: "La Tercera Edad abarca los eventos narrados en El Hobbit y El Señor de los Anillos. Durante este periodo, el poder de los elfos disminuyó mientras el de los hombres aumentaba. Esta era concluye con la destrucción del Anillo Único, la caída de Sauron, y la coronación de Aragorn como rey de Gondor y Arnor reunificados."
         },
         {
             id: 5,
             title: "NÚMENOR",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/numenor.jpg",
             description: "Númenor fue una poderosa isla-reino otorgada a los Dúnedain por los Valar. Durante siglos prosperó hasta convertirse en la civilización más avanzada de la Tierra Media. Su último rey, Ar-Pharazôn, fue engañado por Sauron para atacar Valinor, lo que resultó en la completa destrucción de la isla y su hundimiento bajo el mar."
         },
         {
             id: 6,
             title: "ROHAN, GONDOR, MORDOR",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/realmsHuman.jpg",
             description: "Esta región central de la Tierra Media fue el escenario principal de la Guerra del Anillo. Rohan, el reino de los jinetes, acudió en ayuda de Gondor en la Batalla de los Campos del Pelennor. Mordor, dominado por la sombra de Sauron, fue el objetivo final de Frodo y Sam en su misión para destruir el Anillo Único en el Monte del Destino."
         },
         {
             id: 7,
             title: "TIERRA MEDIA DE PETER JACKSON",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/tierraMedia-PeterJackson.jpg",
             description: "Este mapa representa la visión de la Tierra Media según las adaptaciones cinematográficas de Peter Jackson. Incluye localizaciones icónicas como Rivendel, Lothlórien, y la Montaña Solitaria tal como aparecen en las trilogías de El Hobbit y El Señor de los Anillos, con su propia interpretación geográfica y estética."
         },
         {
             id: 8,
             title: "TIERRAS DEL NORTE",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/tierras-del-norte.jpg",
             description: "Las Tierras del Norte incluyen Eriador, Rhovanion y las Montañas Nubladas. Esta región albergaba antiguos reinos como Arnor y Angmar, así como asentamientos como Rivendel, la Montaña Solitaria y el Reino de los Bosques. Aquí transcurrieron los eventos de El Hobbit y fue un área crucial en la Guerra del Anillo."
         },
         {
             id: 9,
             title: "UNDYINGLAND Y BELEGAER",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/undingland.jpg",
             description: "Undyingland (Aman) es el continente occidental donde moran los Valar y los elfos inmortales, separado de la Tierra Media por el gran océano Belegaer. Tras la caída de Númenor, Aman fue removido del mundo físico y solo los elfos podían encontrar el Camino Recto para llegar a sus costas desde los Puertos Grises."
         },
         {
             id: 10,
             title: "MIRKWOOD Y LA MONTAÑA SOLITARIA",
-            image: "/api/placeholder/800/600",
+            image: "../storage/images/mapas/mirkwood.jpg",
             description: "El Bosque Negro (Mirkwood) fue una vez el Gran Bosque Verde antes de ser corrompido por la sombra de Sauron. Aquí, la compañía de Thorin Escudo de Roble luchó contra arañas gigantes y fue capturada por los elfos del bosque. La Montaña Solitaria, hogar ancestral de los enanos, fue el objetivo final de su misión para recuperar su reino del dragón Smaug."
         }
     ];
